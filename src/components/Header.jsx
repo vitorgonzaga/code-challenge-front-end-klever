@@ -1,7 +1,7 @@
 import React from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import logo from '../assets/logo.svg';
-import shootingStart from '../assets/shooting-star.svg';
+import ShootingStarIcon from '../svgComponents/ShootingStarIcon';
 import Button from './Button';
 
 export default function Header() {
@@ -30,7 +30,8 @@ export default function Header() {
     <div>
       <img src={logo} style={{ width: 150 }} alt="logo" />
       <div>
-        <img src={shootingStart} style={{ width: 50 }} alt="shooting-star" />
+        {/* <img src={shootingStart} fill="yellow" style={{ width: 50 }} alt="shooting-star" /> */}
+        <ShootingStarIcon width={50} />
         <p>Wish Wallet</p>
         <Button
           id={`header_button-${selectVarsBy[pathname].id}`}
