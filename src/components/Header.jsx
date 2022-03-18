@@ -1,4 +1,6 @@
+import 'bootstrap/dist/css/bootstrap.min.css';
 import React from 'react';
+import { Container } from 'react-bootstrap';
 import { useLocation, useNavigate } from 'react-router-dom';
 import logo from '../assets/logo.svg';
 import ShootingStarIcon from '../svgComponents/ShootingStarIcon';
@@ -27,18 +29,39 @@ export default function Header() {
   };
 
   return (
-    <div>
-      <img src={logo} style={{ width: 150 }} alt="logo" />
-      <div>
-        {/* <img src={shootingStart} fill="yellow" style={{ width: 50 }} alt="shooting-star" /> */}
-        <ShootingStarIcon width={50} />
-        <p>Wish Wallet</p>
+    <Container style={{ border: '2px solid white', width: '700px' }}>
+      <div style={{
+        border: '2px solid blue',
+        display: 'flex',
+        flexDirection: 'row',
+        height: '200px',
+        justifyContent: 'center',
+      }}
+      >
+        <img src={logo} style={{ width: 150 }} alt="logo" />
+      </div>
+      <Container style={{
+        border: '2px solid red', display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-around',
+      }}
+      >
+        <Container style={{
+          display: 'flex', flexDirection: 'row', justifyContent: '', alignItems: 'center',
+        }}
+        >
+          <ShootingStarIcon width={50} />
+          <p style={{
+            fontWeight: 'bold', fontSize: '1.4em', border: '1px solid yellow', margin: '0 0 0 15px',
+          }}
+          >
+            Wish Wallet
+          </p>
+        </Container>
         <Button
           id={`header_button-${selectVarsBy[pathname].id}`}
           onClick={selectVarsBy[pathname].func}
           text={selectVarsBy[pathname].text}
         />
-      </div>
-    </div>
+      </Container>
+    </Container>
   );
 }
