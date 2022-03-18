@@ -89,7 +89,7 @@ export default function AddTokenForm() {
         onChange={handleChange}
         text="Token"
         type="text"
-        value={formData.token}
+        value={formData.token.toUpperCase()}
       />
       <Input
         id="add_token_page__input-balance"

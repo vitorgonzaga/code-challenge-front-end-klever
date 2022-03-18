@@ -119,7 +119,7 @@ export default function EditTokenForm() {
         onChange={handleChange}
         text="Token"
         type="text"
-        value={dataToFeedEditPage.token}
+        value={dataToFeedEditPage.token.toUpperCase()}
       />
       <Input
         id="edit_token_page__input-balance"
