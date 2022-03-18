@@ -15,16 +15,19 @@ export default function Header() {
       id: 'add-token',
       text: 'Add Token',
       func: () => { navigate('/addToken'); },
+      classNameBtn: 'btn btn-primary',
     },
     '/editpage': {
       id: 'edit',
       text: 'Voltar',
       func: () => { navigate('/home'); },
+      classNameBtn: 'btn btn-default',
     },
     '/addToken': {
       id: 'back-to-home',
       text: 'Voltar',
       func: () => { navigate('/home'); },
+      classNameBtn: 'btn btn-default',
     },
   };
 
@@ -60,6 +63,7 @@ export default function Header() {
           id={`header_button-${selectVarsBy[pathname].id}`}
           onClick={selectVarsBy[pathname].func}
           text={selectVarsBy[pathname].text}
+          className={selectVarsBy[pathname].classNameBtn}
         />
       </Container>
     </Container>

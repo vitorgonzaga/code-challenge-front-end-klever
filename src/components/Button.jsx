@@ -1,3 +1,4 @@
+import 'bootstrap/dist/css/bootstrap.min.css';
 import PropTypes from 'prop-types';
 import React from 'react';
 
@@ -6,6 +7,7 @@ export default function Button({
   disabled,
   onClick,
   text,
+  className,
 }) {
   return (
     <button
@@ -13,6 +15,7 @@ export default function Button({
       data-testid={id}
       onClick={onClick}
       disabled={disabled}
+      className={className}
     >
       { text }
     </button>
@@ -23,6 +26,7 @@ Button.propTypes = {
   id: PropTypes.string.isRequired,
   onClick: PropTypes.func.isRequired,
   text: PropTypes.string.isRequired,
+  className: PropTypes.string.isRequired,
 };
 
 Button.defaultProps = {
