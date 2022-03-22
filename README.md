@@ -11,7 +11,7 @@ Desafio Técnico associado a processo seletivo para front-end na Klever.
 
 ## Instalação
 
-Realize o clone numa pasta local ```git clone <url do repositório>```;
+Realize o clone numa pasta local ```git clone https://github.com/vitorgonzaga/code-challenge-front-end-klever.git```;
 
 Execute ```npm install``` na pasta raiz do projeto e em seguida ```npm start```;
 
