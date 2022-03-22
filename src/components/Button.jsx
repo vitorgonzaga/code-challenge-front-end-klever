@@ -16,6 +16,7 @@ export default function Button({
       onClick={onClick}
       disabled={disabled}
       className={className}
+      style={{ width: '166px' }}
     >
       { text }
     </button>

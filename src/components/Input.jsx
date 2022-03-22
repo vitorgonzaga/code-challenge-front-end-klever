@@ -1,5 +1,7 @@
+import 'bootstrap/dist/css/bootstrap.min.css';
 import PropTypes from 'prop-types';
 import React from 'react';
+import { Form } from 'react-bootstrap';
 
 export default function Input({
   id,
@@ -10,16 +12,18 @@ export default function Input({
   value,
 }) {
   return (
-    <label htmlFor={name}>
+    <Form.Label htmlFor={name} style={{ border: '0px solid yellow', width: '100%', fontSize: 'medium' }}>
       {text}
-      <input
+      <Form.Control
+        style={{ border: '0px solid blue', margin: '0 0 15px 0' }}
+        className="flex-fill"
         data-testid={id}
         type={type}
         name={name}
         onChange={onChange}
         value={value}
       />
-    </label>
+    </Form.Label>
   );
 }
 

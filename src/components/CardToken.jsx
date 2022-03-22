@@ -1,40 +1,55 @@
+import 'bootstrap/dist/css/bootstrap.min.css';
 import PropTypes from 'prop-types';
-import React, { useContext } from 'react';
-import { useNavigate } from 'react-router-dom';
-import editIcon from '../assets/icons8-edit-64.png';
-import Context from '../context/Context';
+import React from 'react';
+import { Container } from 'react-bootstrap';
+import EditIcon from '../svgComponents/EditIcon';
 
 export default function CardToken({
   token,
   balance,
 }) {
-  const navigate = useNavigate();
-  const { setDataToFeedEditPage } = useContext(Context);
-
-  const imageClick = async (strToken, strBalance) => {
-    try {
-      await setDataToFeedEditPage({
-        token: strToken,
-        balance: strBalance,
-      });
-      await navigate('/editpage');
-    } catch (error) {
-      console.log('imageClick -> error', error.message);
-    }
-  };
-
   return (
-    <div key={token}>
-      <button key={`${token}-btn`} type="button" onClick={async () => imageClick(token, balance)}>
-        <img
-          alt="edit icon"
-          key={`${token}-icon`}
-          src={editIcon}
-        />
-      </button>
-      <div key={`${token}-div-token`}>{token}</div>
-      <div key={`${token}-div-balance`}>{balance.toLocaleString('en-US', { minimumFractionDigits: 2 })}</div>
-    </div>
+    <Container
+      key={token}
+      style={{
+        border: '0px solid white',
+        width: '700px',
+        display: 'flex',
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+      }}
+    >
+      <div style={{
+        border: '0px solid red',
+        display: 'flex',
+        flexDirection: 'row',
+        // justifyContent: 'flex-end',
+      }}
+      >
+        <EditIcon key={`${token}-btn`} token={token} balance={balance} />
+        <div
+          role="listitem"
+          data-testid={`${token}-div-token`}
+          key={`${token}-div-token`}
+          style={{
+            width: '60px',
+            margin: '0 20px 0 20px',
+            fontWeight: 'bold',
+          }}
+        >
+          {token}
+
+        </div>
+      </div>
+      <div
+        data-testid={`${token}-div-balance`}
+        key={`${token}-div-balance`}
+        style={{ fontWeight: 'bold' }}
+      >
+        {balance.toLocaleString('en-US', { style: 'currency', currency: 'USD', minimumFractionDigits: 2 })}
+
+      </div>
+    </Container>
   );
 }
 
