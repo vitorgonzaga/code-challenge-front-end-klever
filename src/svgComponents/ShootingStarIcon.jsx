@@ -3,17 +3,16 @@ import React from 'react';
 export default function ShootingStarIcon(props) {
   return (
     <svg
-      version="1.1"
-      id="Layer_1"
       fill="yellow"
-      xmlns="http://www.w3.org/2000/svg"
-      // xmlns:xlink="http://www.w3.org/1999/xlink"
-      x="0px"
-      y="0px"
+      id="Layer_1"
+      style={props}
+      version="1.1"
       viewBox="0 0 512.13 512.13"
-      style={props} // "enable-background:new 0 0 512.13 512.13;"
+      x="0px"
+      xmlns="http://www.w3.org/2000/svg"
       xmlSpace="preserve"
-      // {...props}
+      y="0px"
+      data-testid="header-shootinStarIcon-svg"
     >
       <g>
         <g>
