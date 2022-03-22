@@ -12,60 +12,109 @@ export default function Header() {
 
   const selectVarsBy = {
     '/home': {
-      id: 'add-token',
-      text: 'Add Token',
-      func: () => { navigate('/addToken'); },
       classNameBtn: 'btn btn-primary',
+      func: () => { navigate('/addtoken'); },
+      id: 'add-token',
+      textBtn: 'Add Token',
     },
     '/editpage': {
+      classNameBtn: 'btn btn-secondary',
+      func: () => { navigate('/home'); },
       id: 'edit',
-      text: 'Voltar',
-      func: () => { navigate('/home'); },
-      classNameBtn: 'btn btn-default',
+      text: 'Edit Token',
+      textBtn: 'Voltar',
     },
-    '/addToken': {
-      id: 'back-to-home',
-      text: 'Voltar',
+    '/addtoken': {
+      classNameBtn: 'btn btn-secondary',
       func: () => { navigate('/home'); },
-      classNameBtn: 'btn btn-default',
+      id: 'back-to-home',
+      text: 'Add Token',
+      textBtn: 'Voltar',
     },
   };
 
   return (
-    <Container style={{ border: '2px solid white', width: '700px' }}>
+    <Container style={{ border: '0px solid white', width: '700px' }}>
       <div style={{
-        border: '2px solid blue',
+        border: '0px solid blue',
         display: 'flex',
         flexDirection: 'row',
         height: '200px',
         justifyContent: 'center',
       }}
       >
-        <img src={logo} style={{ width: 150 }} alt="logo" />
+        <img
+          alt="logo"
+          data-testid="header-logo-image"
+          src={logo}
+          style={{ width: 200 }}
+        />
       </div>
       <Container style={{
-        border: '2px solid red', display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-around',
+        border: '0px solid red',
+        display: 'flex',
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: '',
+        padding: '0 13px 0 13px',
       }}
       >
-        <Container style={{
-          display: 'flex', flexDirection: 'row', justifyContent: '', alignItems: 'center',
-        }}
+        <div style={{}}>
+          <ShootingStarIcon width="90px" height="90px" />
+        </div>
+        <p
+          data-testid="header-main-text-page"
+          style={{
+            fontWeight: 'bold',
+            fontSize: '1.4em',
+            border: '0px solid yellow',
+            margin: '0 0 0 15px',
+            width: '100%',
+          }}
         >
-          <ShootingStarIcon width={50} />
-          <p style={{
-            fontWeight: 'bold', fontSize: '1.4em', border: '1px solid yellow', margin: '0 0 0 15px',
+          Wish Wallet
+        </p>
+        {pathname === '/home'
+          ? (
+            <div style={{
+              margin: '0',
+              padding: '0',
+              border: '0px solid white',
+              // width: '100%',
+              display: 'flex',
+              justifyContent: 'flex-end',
+            }}
+            >
+              <Button
+                id={`header-button-${selectVarsBy[pathname].id}`}
+                onClick={selectVarsBy[pathname].func}
+                text={selectVarsBy[pathname].textBtn}
+                className={selectVarsBy[pathname].classNameBtn}
+              />
+            </div>
+          )
+          : null}
+      </Container>
+      {pathname !== '/home'
+        ? (
+          <Container style={{
+            border: '0px solid green',
+            display: 'flex',
+            flexDirection: 'row',
+            justifyContent: 'space-between',
+            alignItems: 'center',
           }}
           >
-            Wish Wallet
-          </p>
-        </Container>
-        <Button
-          id={`header_button-${selectVarsBy[pathname].id}`}
-          onClick={selectVarsBy[pathname].func}
-          text={selectVarsBy[pathname].text}
-          className={selectVarsBy[pathname].classNameBtn}
-        />
-      </Container>
+            <p style={{ margin: '0 0 0 66px', fontWeight: 'bold' }}>{selectVarsBy[pathname].text}</p>
+            <Button
+              id={`header_button-${selectVarsBy[pathname].id}`}
+              onClick={selectVarsBy[pathname].func}
+              text={selectVarsBy[pathname].textBtn}
+              className={selectVarsBy[pathname].classNameBtn}
+            />
+          </Container>
+        )
+        : null}
     </Container>
   );
 }
